@@ -31,15 +31,14 @@ public class HelloWorld extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("ciaoooooo");
+		//System.out.println("ciaoooooo");
         out.println("<html>");
         out.println("<head>");
         out.println("<title>Hello World!</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("Antonio gAY");
-//        out.println(data);
-//        out.println(mining.getC().toString(data));
+        out.println(data);
+        out.println(mining.getC().toString(data));
         out.println("</body>");
         out.println("</html>");
     }
