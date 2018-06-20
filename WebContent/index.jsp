@@ -45,7 +45,10 @@ $(function() {
 					<form method="get" action="LearnFromFile">
 						<label for="name">Name:</label><br /> <input type="text"
 							name="name" id="name" />
+						<p>Output: ${mining}</p>
 					</form>
+					
+					
 				</div>
 			</div>
 		</div>
