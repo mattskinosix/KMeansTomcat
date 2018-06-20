@@ -29,7 +29,7 @@ $(function() {
   	if((String)session.getAttribute("error") != null){ %>
 					<h4>Invalid Email or Password. Please try again.</h4>
 					<%} %>
-					<form method="get" action="HelloWorld">
+					<form method="get" action="LearnFromDb">
 						<label for="k">k:</label> <br /> <input type="number"
 							name="k" id="k" /> <br /> <label for="table">table:</label>
 						<br /> <input type="text" name="table" id="table" /> <br />

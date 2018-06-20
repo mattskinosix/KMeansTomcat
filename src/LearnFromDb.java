@@ -7,8 +7,8 @@ import javax.servlet.http.*;
 import data.Data;
 import data.OutOfRangeSampleSize;
 import mining.KMeansMiner;
-@WebServlet("/HelloWorld")
-public class HelloWorld extends HttpServlet {
+@WebServlet("/LearnFromDb")
+public class LearnFromDb extends HttpServlet {
 
     /**
 	 * 
