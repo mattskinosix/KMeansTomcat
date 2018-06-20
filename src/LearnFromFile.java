@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import data.Data;
 import mining.KMeansMiner;
 
-public class LearningFromFile {
+public class LearnFromFile {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException  {
 		
