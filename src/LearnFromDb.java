@@ -24,15 +24,13 @@ public class LearnFromDb extends HttpServlet {
         response.setContentType("text/html");
       
         String table= request.getParameter("table");
-        String j=request.getParameter("k");
         int i= Integer.parseInt(request.getParameter("k"));
         PrintWriter out = response.getWriter();
         Data data = new Data(table);
 		KMeansMiner mining = new KMeansMiner(i);
 		try {
-			int numIt = mining.kmeans(data);
+			mining.kmeans(data);
 		} catch (OutOfRangeSampleSize e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			 out.println("<h1><font color= \"red\" >Error il numero di k richiesti è troppo elevato, riprova</h1></font><br/>");
 		}
