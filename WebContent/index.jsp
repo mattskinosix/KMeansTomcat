@@ -38,7 +38,7 @@ function GetURLParameter(sParam)
 		<div id="tabs">
 			<ul>
 				<li><a href="#db">Cluster DB</a></li>
-				<li><a href="#register">Leggi Da File</a></li>
+				<li><a href="#file">Leggi Da File</a></li>
 			</ul>
 			<div id="db">
 				<%
@@ -57,11 +57,13 @@ function GetURLParameter(sParam)
 					<p>Output: ${mining}</p>
 				</form>
 			</div>
-			<div id="register">
+			<div id="file">
 				<%
-					if ((String) session.getAttribute("errorReg") != null) {
+					if ((String) session.getAttribute("selectedTab") != null) {
 				%>
-				<h4><%=session.getAttribute("errorReg")%></h4>
+					<script>
+						location.hash ="file";
+					</script>
 				<%
 					}
 				%>
@@ -70,9 +72,8 @@ function GetURLParameter(sParam)
 						name="name" id="name" />
 					
 					<p>file: ${selectedTab}</p>
-					<script>
-						location.hash = document.getElementById("selectedTab").value;
-					</script>
+					
+					
 
 					<button type="submit" class="btn btn-success btn-lg ">Leggi
 						file</button>

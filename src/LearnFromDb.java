@@ -35,7 +35,7 @@ public class LearnFromDb extends HttpServlet {
 			 out.println("<h1><font color= \"red\" >Error il numero di k richiesti è troppo elevato, riprova</h1></font><br/>");
 		}
 		request.setAttribute("mining",mining.getC().toString(data));
-		//request.getRequestDispatcher("/index.jsp").forward(request, response);		
+		request.getRequestDispatcher("/index.jsp").forward(request, response);		
 		/*
 		System.out.println("ciaoooooo");
         out.println("<html>");

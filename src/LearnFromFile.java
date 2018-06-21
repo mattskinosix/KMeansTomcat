@@ -26,7 +26,7 @@ public class LearnFromFile extends HttpServlet  {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);			
 			
 		}catch( FileNotFoundException | ClassNotFoundException e) {
-			request.setAttribute("selectedTab","file");
+			request.getSession().setAttribute("selectedTab","file");
 			request.setAttribute("miningFile","Error");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		
