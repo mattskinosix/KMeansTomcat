@@ -36,6 +36,9 @@ public class LearnFromDb extends HttpServlet {
 			e.printStackTrace();
 			 out.println("<h1><font color= \"red\" >Error il numero di k richiesti è troppo elevato, riprova</h1></font><br/>");
 		}
+		request.setAttribute("mining",mining.getC().toString(data));
+		//request.getRequestDispatcher("/index.jsp").forward(request, response);		
+		/*
 		System.out.println("ciaoooooo");
         out.println("<html>");
         out.println("<head>");
@@ -45,8 +48,10 @@ public class LearnFromDb extends HttpServlet {
      //   out.println("Antonio gAY");
         out.println(data);
         out.println(mining.getC().toString(data));
+        mining.salva("mirko");
         out.println("</body>");
         out.println("</html>");
+        */
     }
 
 }
