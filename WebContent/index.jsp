@@ -39,15 +39,13 @@
 				<li><a href="#file">Leggi Da File</a></li>
 			</ul>
 			<div id="db">
-				<p>file: ${selectedTab}</p>
-				
-				<form method="get" action="LearnFromDb">
-					<label for="k">k:</label> <br /> <input type="number" name="k"
+					<form method="get" action="LearnFromDb">
+					<label for="k">k:</label> <br /> <input type="number" required name="k"
 						id="k" /> <br /> <label for="table">table:</label> <br /> <input
-						type="text" name="table" id="table" /> <br /> <br />
+						type="text"  required name="table" id="table" /> <br /> <br />
 					<button type="submit" class="btn btn-success btn-lg ">Cluster</button>
 					<%
-						if (session.getAttribute("selectedTab") =="db") {
+						if (session.getAttribute("selectedTab") == "db") {
 					%>
 					<script>
 						location.hash = "db";
@@ -55,19 +53,17 @@
 					<%
 						}
 					%>
-					<p>Output: ${mining}</p>
+					<p>${mining}</p>
 				</form>
 			</div>
 			<div id="file">
 
 				<form method="get" action="LearnFromFile">
-					<label for="name">Name:</label><br /> <input type="text"
+					<label for="name">Name:</label><br /> <input type="text" required
 						name="name" id="name" />
 
-				
-
 					<%
-						if (session.getAttribute("selectedTab") =="file") {
+						if (session.getAttribute("selectedTab") == "file") {
 					%>
 					<script>
 						location.hash = "file";
@@ -78,7 +74,7 @@
 
 					<button type="submit" class="btn btn-success btn-lg ">Leggi
 						file</button>
-					<p>Output: ${miningFile}</p>
+					<p>${miningFile}</p>
 				</form>
 			</div>
 		</div>

@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.mysql.jdbc.exceptions.MySQLSyntaxErrorException;
+
 import database.TableSchema.Column;
 
 public class TableData {

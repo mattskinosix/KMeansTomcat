@@ -11,6 +11,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
+
 import database.DatabaseConnectionException;
 import database.DbAccess;
 import database.EmptyTypeException;
@@ -27,30 +29,24 @@ public class Data {
 	private int numberOfExamples;
 	private List<Attribute> attributeSet;
 
-	public Data(String tabella)  { 
+	public Data(String tabella) throws DatabaseConnectionException , SQLException {
 		TreeSet<Example> tempdata = new TreeSet<Example>();
 		DbAccess x = new DbAccess();
 		Connection c;
+		x.initConnection();
+		c = x.getConnection();
 		try {
-			
-			x.initConnection();
-			c = x.getConnection();
-			try {
-				TableData x3 = new TableData(x);
-				@SuppressWarnings("rawtypes")
-				List lista = x3.getDistinctTransazioni(tabella);
-				for (int i = 0; i < lista.size(); i++) {
-					Example ex = new Example();
-					ex = (Example) lista.get(i);
-					tempdata.add(ex);
-				}
-				c.close();
-			} catch (SQLException | EmptyTypeException e) {
-				e.printStackTrace();
+			TableData x3 = new TableData(x);
+			@SuppressWarnings("rawtypes")
+			List lista = x3.getDistinctTransazioni(tabella);
+			for (int i = 0; i < lista.size(); i++) {
+				Example ex = new Example();
+				ex = (Example) lista.get(i);
+				tempdata.add(ex);
 			}
-		} catch (DatabaseConnectionException e) {
+			c.close();
+		} catch (EmptyTypeException e) {
 			e.printStackTrace();
-			return;
 		}
 
 		data = new ArrayList<Example>(tempdata);
