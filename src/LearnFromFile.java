@@ -20,13 +20,14 @@ public class LearnFromFile extends HttpServlet  {
 		
 		String namefile=request.getParameter("name");
 		try {
+			request.getSession().setAttribute("selectedTab","file");
 			Data data = new Data("playtennis");
 			KMeansMiner mining = new KMeansMiner(namefile);
 			request.setAttribute("miningFile",mining.getC().toString(data));
 			request.getRequestDispatcher("/index.jsp").forward(request, response);			
 			
 		}catch( FileNotFoundException | ClassNotFoundException e) {
-			request.getSession().setAttribute("selectedTab","file");
+			
 			request.setAttribute("miningFile","Error");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		

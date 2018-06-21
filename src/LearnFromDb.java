@@ -28,6 +28,7 @@ public class LearnFromDb extends HttpServlet {
         PrintWriter out = response.getWriter();
         Data data = new Data(table);
 		KMeansMiner mining = new KMeansMiner(i);
+		request.getSession().setAttribute("selectedTab","db");
 		try {
 			mining.kmeans(data);
 		} catch (OutOfRangeSampleSize e) {

@@ -13,19 +13,17 @@
 	});
 </script>
 <script>
-function GetURLParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-}​
+	function GetURLParameter(sParam) {
+		var sPageURL = window.location.search.substring(1);
+		var sURLVariables = sPageURL.split('&');
+		for (var i = 0; i < sURLVariables.length; i++) {
+			var sParameterName = sURLVariables[i].split('=');
+			if (sParameterName[0] == sParam) {
+				return sParameterName[1];
+			}
+		}
+	}
+	​
 </script>
 <link rel="icon"
 	href="https://icon-icons.com/icons2/828/PNG/512/K_icon-icons.com_66548.png">
@@ -41,39 +39,42 @@ function GetURLParameter(sParam)
 				<li><a href="#file">Leggi Da File</a></li>
 			</ul>
 			<div id="db">
-				<%
-					if ((String) session.getAttribute("error") != null) {
-				%>
-				<h4>Invalid Email or Password. Please try again.</h4>
-				<%
-					}
-				%>
+				<p>file: ${selectedTab}</p>
+				
 				<form method="get" action="LearnFromDb">
 					<label for="k">k:</label> <br /> <input type="number" name="k"
 						id="k" /> <br /> <label for="table">table:</label> <br /> <input
 						type="text" name="table" id="table" /> <br /> <br />
 					<button type="submit" class="btn btn-success btn-lg ">Cluster</button>
-
+					<%
+						if (session.getAttribute("selectedTab") =="db") {
+					%>
+					<script>
+						location.hash = "db";
+					</script>
+					<%
+						}
+					%>
 					<p>Output: ${mining}</p>
 				</form>
 			</div>
 			<div id="file">
-				<%
-					if ((String) session.getAttribute("selectedTab") != null) {
-				%>
-					<script>
-						location.hash ="file";
-					</script>
-				<%
-					}
-				%>
+
 				<form method="get" action="LearnFromFile">
 					<label for="name">Name:</label><br /> <input type="text"
 						name="name" id="name" />
-					
-					<p>file: ${selectedTab}</p>
-					
-					
+
+				
+
+					<%
+						if (session.getAttribute("selectedTab") =="file") {
+					%>
+					<script>
+						location.hash = "file";
+					</script>
+					<%
+						}
+					%>
 
 					<button type="submit" class="btn btn-success btn-lg ">Leggi
 						file</button>
