@@ -12,19 +12,6 @@
 		$("#tabs").tabs();
 	});
 </script>
-<script>
-	function GetURLParameter(sParam) {
-		var sPageURL = window.location.search.substring(1);
-		var sURLVariables = sPageURL.split('&');
-		for (var i = 0; i < sURLVariables.length; i++) {
-			var sParameterName = sURLVariables[i].split('=');
-			if (sParameterName[0] == sParam) {
-				return sParameterName[1];
-			}
-		}
-	}
-	​
-</script>
 <link rel="icon"
 	href="https://icon-icons.com/icons2/828/PNG/512/K_icon-icons.com_66548.png">
 <link rel="stylesheet"
