@@ -21,15 +21,27 @@
 <body>
 	<div class="container">
 		<div id="tabs">
-			<ul>
-				<li><a href="#db">Cluster DB</a></li>
-				<li><a href="#file">Leggi Da File</a></li>
-			</ul>
+			<nav class="navbar navbar-inverse">
+				
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#db">KMeans</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li role="tab" tabindex="0" aria-controls="db"
+							aria-labelledby="ui-id-1" aria-selected="true"
+							aria-expanded="true" class="active"><a href="#db"
+							role="presentation" tabindex="-1" id="ui-id-1">Cluster DB</a></li>
+						<li class="active" role="tab" tabindex="-1" aria-controls="file"
+							aria-labelledby="ui-id-2" aria-selected="false"
+							aria-expanded="false"><a href="#file" role="presentation"
+							tabindex="-1" id="ui-id-2">Leggi Da File</a></li>
+					</ul>
+			</nav>
 			<div id="db">
-					<form method="get" action="LearnFromDb">
-					<label for="k">k:</label> <br /> <input type="number" required name="k"
-						id="k" /> <br /> <label for="table">table:</label> <br /> <input
-						type="text"  required name="table" id="table" /> <br /> <br />
+				<form method="get" action="LearnFromDb">
+					<label for="k">k:</label> <br /> <input type="number" min="0" required
+						name="k" id="k" /> <br /> <label for="table">table:</label> <br />
+					<input type="text" required name="table" id="table" /> <br /> <br />
 					<button type="submit" class="btn btn-success btn-lg ">Cluster</button>
 					<%
 						if (session.getAttribute("selectedTab") == "db") {

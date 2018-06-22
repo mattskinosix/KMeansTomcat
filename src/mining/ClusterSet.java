@@ -16,7 +16,6 @@ public class ClusterSet implements Serializable{
 		for(int i=0;i<C.length;i++){
 			if (C[i]!=null){
 				str+=i+":"+C[i].toString(data)+"<BR>";
-				System.out.println();
 				}
 			}
 		return str; 

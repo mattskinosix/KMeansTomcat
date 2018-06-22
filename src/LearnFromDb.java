@@ -48,7 +48,6 @@ public class LearnFromDb extends HttpServlet {
 				request.getRequestDispatcher("/index.jsp").forward(request, response);
 			}
 		} catch (DatabaseConnectionException |  SQLException e1) {
-			System.out.println("CAPOCHCHIAHIHSHIAHIHSI");
 			request.setAttribute("mining", "Connesione database fallita, controllare nome tabella e servizio mysql");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
