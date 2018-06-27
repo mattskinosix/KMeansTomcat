@@ -11,6 +11,7 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 
 import data.Data;
 import database.DatabaseConnectionException;
+import database.EmptySetException;
 import mining.KMeansMiner;
 
 public class LearnFromFile extends HttpServlet  {
@@ -29,9 +30,17 @@ public class LearnFromFile extends HttpServlet  {
 			try {
 				data = new Data("playtennis");
 			} catch (MySQLSyntaxErrorException e) {
-				
+				request.setAttribute("miningFile","A quanto pare il programmatore ha sbagliato a formulare la query, Licenziatelo! ");
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+			
 			} catch (SQLException e) {
-				
+				request.setAttribute("miningFile","Abbiamo problemi con il Database :(");
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+			
+			} catch (EmptySetException e) {
+				request.setAttribute("miningFile","tabella vuota");
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+			
 			}
 			KMeansMiner mining = new KMeansMiner(namefile);
 			request.setAttribute("miningFile",mining.getC().toString(data));

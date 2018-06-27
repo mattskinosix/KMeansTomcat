@@ -119,16 +119,16 @@ import data.*;
 		String str = "Centroid=(";
 		for (int i = 0; i < centroid.getLength(); i++)
 			str += centroid.get(i) + " ";
-		str += ")\nExamples:\n";
+		str += ")<br>Examples:<br>";
 		Object[] array = clusteredData.toArray();
 		for (int i = 0; i < array.length; i++) {
 			str += "[";
 			for (int j = 0; j < data.getNumberOfAttributes(); j++)
 				str += data.getAttributeValue((int) array[i], j) + " ";
-			str += "] dist=" + getCentroid().getDistance(data.getItemSet((int) array[i])) + "\n";
+			str += "] dist=" + getCentroid().getDistance(data.getItemSet((int) array[i])) + "<br>";
 
 		}
-		str += "\nAvgDistance=" + getCentroid().avgDistance(data, array);
+		str += "<br>AvgDistance=" + getCentroid().avgDistance(data, array);
 		return str;
 
 	}

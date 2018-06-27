@@ -45,7 +45,7 @@ public class Data {
 	 *            modello relazionale.
 	 * @throws EmptySetException
 	 */
-	public Data(String tabella) throws EmptySetException {
+	public Data(String tabella) throws EmptySetException ,DatabaseConnectionException,SQLException {
 		TreeSet<Example> tempdata = new TreeSet<Example>();
 		DbAccess x = new DbAccess();
 		try {
@@ -59,13 +59,13 @@ public class Data {
 					ex = (Example) lista.get(i);
 					tempdata.add(ex);
 				}
-
+				
 			} catch (SQLException e) {
 				e.getMessage();
 				x.closeConnection();
 			}
 		} catch (DatabaseConnectionException e) {
-			e.printStackTrace();
+			
 			x.closeConnection();
 		}
 		data = new ArrayList<Example>(tempdata);

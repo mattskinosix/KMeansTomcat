@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>KMeans</title>
 <link rel="stylesheet" href="css/jquery-ui.css">
 <link rel="stylesheet" href="css/style.css">
@@ -22,33 +24,44 @@
 	<div class="container">
 		<div id="tabs">
 			<nav class="navbar navbar-inverse">
-				
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#db">KMeans</a>
-					</div>
-					<ul class="nav navbar-nav">
-						<li role="tab" tabindex="0" aria-controls="db"
-							aria-labelledby="ui-id-1" aria-selected="true"
-							aria-expanded="true" class="active"><a href="#db"
-							role="presentation" tabindex="-1" id="ui-id-1">Cluster DB</a></li>
-						<li class="active" role="tab" tabindex="-1" aria-controls="file"
-							aria-labelledby="ui-id-2" aria-selected="false"
-							aria-expanded="false"><a href="#file" role="presentation"
-							tabindex="-1" id="ui-id-2">Leggi Da File</a></li>
-					</ul>
+
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#db">KMeans</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li role="tab" tabindex="0" aria-controls="db"
+						aria-labelledby="ui-id-1" aria-selected="true"
+						aria-expanded="true" class="active"><a href="#db"
+						role="presentation" tabindex="-1" id="ui-id-1">Cluster DB</a></li>
+					<li class="active" role="tab" tabindex="-1" aria-controls="file"
+						aria-labelledby="ui-id-2" aria-selected="false"
+						aria-expanded="false"><a href="#file" role="presentation"
+						tabindex="-1" id="ui-id-2">Leggi Da File</a></li>
+				</ul>
 			</nav>
 			<div id="db">
 				<form method="get" action="LearnFromDb">
-					<label for="k">k:</label> <br /> <input type="number" min="0" required
-						name="k" id="k" /> <br /> <label for="table">table:</label> <br />
-					<input type="text" required name="table" id="table" /> <br /> <br />
+					<label for="k">k:</label> <br /> <input type="number"  value="1" min="0"
+						 name="k" id="k" /> <br /> <label for="table">table:</label>
+					<br /> <input type="text" name="table" id="table" /> <br />
+					<br />
 					<button type="submit" class="btn btn-success btn-lg ">Cluster</button>
+					<br /> <br />
 					<%
 						if (session.getAttribute("selectedTab") == "db") {
 					%>
 					<script>
 						location.hash = "db";
 					</script>
+					<%
+						}
+					%>
+					<%
+						if (session.getAttribute("selectedTab") == "db") {
+					%>
+					<label for="nomeFile">Nome del file:</label> <br /> <input type="text"
+						required name="nomeFile" id="nomeFile" /> <br /> <br />
+					<button type="submit" class="btn btn-success btn-lg ">Salva</button>
 					<%
 						}
 					%>
