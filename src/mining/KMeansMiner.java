@@ -105,7 +105,7 @@ public class KMeansMiner implements Serializable {
 	 *             trovata.
 	 */
 	public KMeansMiner(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException {
-		FileInputStream file = new FileInputStream(fileName);
+		FileInputStream file = new FileInputStream(fileName+".dmp");
 		ObjectInputStream x = new ObjectInputStream(file);
 		C = (ClusterSet) x.readObject();
 		x.close();
@@ -124,7 +124,7 @@ public class KMeansMiner implements Serializable {
 	 *             scrittura sul file.
 	 */
 	public void salva(String fileName) throws FileNotFoundException, IOException {
-		FileOutputStream file = new FileOutputStream(fileName);
+		FileOutputStream file = new FileOutputStream(fileName+".dmp");
 		ObjectOutputStream x = new ObjectOutputStream(file);
 		x.writeObject(C);
 		x.close();
