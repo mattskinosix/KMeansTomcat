@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 //import java.util.Iterator;
 //import java.util.LinkedList;
 import java.util.List;
@@ -135,6 +137,11 @@ public class TableData {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void creteNewTable(String query) throws SQLException {
+		Statement s=db.getConnection().createStatement();
+		s.executeUpdate(query);
 	}
 
 }

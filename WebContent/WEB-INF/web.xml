@@ -19,6 +19,15 @@
     <servlet-name>LearnFromFile</servlet-name>
     <url-pattern>/LearnFromFile</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>ExecuteQuery</servlet-name>
+    <servlet-class>ExecuteQuery
+		</servlet-class>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>ExecuteQuery</servlet-name>
+    <url-pattern>/ExecuteQuery</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
